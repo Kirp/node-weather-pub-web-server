@@ -17,8 +17,9 @@ weatherForm.addEventListener('submit', (event)=>{
                 messageOne.textContent = data.error;
             }else {
                 //console.log(data);
-                messageOne.textContent = data.address+", "+data.country;
-                messageTwo.textContent = data.weather_description+", with a temperature of "+data.temperature+" and feels like "+data.feelslike;
+                const dayNightMessage = data.is_day==='yes'?'Currently daytime.':'Currently nighttime.';
+                messageOne.textContent = data.address+", "+data.country+". "+dayNightMessage;
+                messageTwo.textContent = data.weather_description+", with a temperature of "+data.temperature+", it feels like "+data.feelslike +", and a humidity of "+data.humidity+".";
             }
         })
     })

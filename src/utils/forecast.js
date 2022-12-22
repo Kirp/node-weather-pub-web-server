@@ -10,12 +10,14 @@ const forecast = (lat, lon, callback)=>{
             callback('Unable to find location weather. Try another search.', undefined);
         }else {
             
-            const {temperature, feelslike} = body.current;
+            const {temperature, feelslike, humidity,is_day} = body.current;
 
             callback(undefined, {
                 weather_description: body.current.weather_descriptions[0],
                 temperature,
-                feelslike
+                feelslike,
+                humidity,
+                is_day
             })   
         }
     })

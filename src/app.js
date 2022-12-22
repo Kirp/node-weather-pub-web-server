@@ -54,7 +54,7 @@ app.get('/weather', (req, res)=>{
         if(error){
             return res.send(error);
         }
-        forecast(latitude, longitude, (error, {weather_description, temperature, feelslike}={}) => {
+        forecast(latitude, longitude, (error, {weather_description, temperature, feelslike, humidity, is_day}={}) => {
             if(error){
                 return res.send(error);
             }
@@ -63,7 +63,9 @@ app.get('/weather', (req, res)=>{
                 country,
                 weather_description,
                 temperature,
-                feelslike
+                feelslike,
+                humidity,
+                is_day
             });
         });
     });  
